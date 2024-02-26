@@ -11,7 +11,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
       - run: |
-          mkdir @kazuhioyokoi
+          mkdir @kazuhitoyokoi
           npm install -g node-red-nodegen
           node-red-nodegen flows.json --tgz
           cd @kazuhitoyokoi/node-red-contrib-*/
