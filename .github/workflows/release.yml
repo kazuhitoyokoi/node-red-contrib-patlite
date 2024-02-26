@@ -11,6 +11,7 @@ jobs:
         with:
           registry-url: https://registry.npmjs.org/
       - run: |
+          mkdir @kazuhioyokoi
           npm install -g node-red-nodegen
           node-red-nodegen flows.json --tgz
           cd @kazuhitoyokoi/node-red-contrib-*/
@@ -18,7 +19,7 @@ jobs:
           cat package.json | jq ".bugs.url|=\"https://github.com/$GITHUB_ACTOR\"" > tmp; mv tmp package.json
           mv ../../examples . || true
           mv ../../README.md . || true
-          npm publish
+          npm publis
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - uses: softprops/action-gh-release@v1
