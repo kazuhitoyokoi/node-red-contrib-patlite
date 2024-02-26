@@ -1,0 +1,594 @@
+[
+    {
+        "id": "9f89e4188f168b46",
+        "type": "subflow",
+        "name": "patlite",
+        "info": "",
+        "category": "network",
+        "in": [
+            {
+                "x": 40,
+                "y": 60,
+                "wires": [
+                    {
+                        "id": "d164cdee2070e440"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [
+            {
+                "name": "ip_address",
+                "type": "str",
+                "value": "",
+                "ui": {
+                    "icon": "font-awesome/fa-globe",
+                    "label": {
+                        "ja": "IPアドレス"
+                    },
+                    "type": "input",
+                    "opts": {
+                        "types": [
+                            "str",
+                            "env"
+                        ]
+                    }
+                }
+            },
+            {
+                "name": "target",
+                "type": "str",
+                "value": "red",
+                "ui": {
+                    "icon": "font-awesome/fa-paint-brush",
+                    "label": {
+                        "ja": "対象"
+                    },
+                    "type": "select",
+                    "opts": {
+                        "opts": [
+                            {
+                                "l": {
+                                    "ja": "赤"
+                                },
+                                "v": "red"
+                            },
+                            {
+                                "l": {
+                                    "ja": "黄"
+                                },
+                                "v": "yellow"
+                            },
+                            {
+                                "l": {
+                                    "ja": "緑"
+                                },
+                                "v": "green"
+                            },
+                            {
+                                "l": {
+                                    "ja": "音"
+                                },
+                                "v": "buzzer"
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "meta": {
+            "module": "@kazuhitoyokoi/node-red-contrib-patlite",
+            "type": "patlite",
+            "version": "0.0.1",
+            "author": "Kazuhito Yokoi <kazuhitoyokoi@nodered.jp>",
+            "desc": "A node to control Patlite NHV series",
+            "keywords": "node-red, patlite",
+            "license": "Apache-2.0"
+        },
+        "color": "#E9967A",
+        "icon": "node-red/bridge-dash.svg",
+        "status": {
+            "x": 880,
+            "y": 440,
+            "wires": [
+                {
+                    "id": "d82ff06a7eedd8f1",
+                    "port": 0
+                },
+                {
+                    "id": "7d9ecaea711a166c",
+                    "port": 0
+                },
+                {
+                    "id": "acc85c6c61482b1f",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "337085bc486219c9",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "red off",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=099999",
+        "output": "str",
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "a680e78eb9b38fa0",
+        "type": "http request",
+        "z": "9f89e4188f168b46",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "",
+        "persist": false,
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 650,
+        "y": 200,
+        "wires": [
+            [
+                "662589f3a62cea24"
+            ]
+        ]
+    },
+    {
+        "id": "4454cd68c873ec22",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "red on",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=199999",
+        "output": "str",
+        "x": 450,
+        "y": 60,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "f237adb49f97e086",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "yellow off",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=909999",
+        "output": "str",
+        "x": 460,
+        "y": 260,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "1aaa29f257328b61",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "yellow on",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=919999",
+        "output": "str",
+        "x": 460,
+        "y": 100,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "f087f9c3c8bed443",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "green off",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=990999",
+        "output": "str",
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "2f6a1dc63c41b15f",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "green on",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=991999",
+        "output": "str",
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "c51f4fd3ee5a5380",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "buzzer off",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=999990",
+        "output": "str",
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "0b7139aedcad1ed0",
+        "type": "template",
+        "z": "9f89e4188f168b46",
+        "name": "buzzer on",
+        "field": "url",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "http://{{env.ip_address}}/api/control?alert=999994",
+        "output": "str",
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "0e324e7f0dee05fc",
+        "type": "switch",
+        "z": "9f89e4188f168b46",
+        "name": "target",
+        "property": "target",
+        "propertyType": "env",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "red",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "yellow",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "green",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "buzzer",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "4454cd68c873ec22"
+            ],
+            [
+                "1aaa29f257328b61"
+            ],
+            [
+                "2f6a1dc63c41b15f"
+            ],
+            [
+                "0b7139aedcad1ed0"
+            ]
+        ]
+    },
+    {
+        "id": "bcad196bf5cd10e7",
+        "type": "switch",
+        "z": "9f89e4188f168b46",
+        "name": "target",
+        "property": "target",
+        "propertyType": "env",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "red",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "yellow",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "green",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "buzzer",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "337085bc486219c9"
+            ],
+            [
+                "f237adb49f97e086"
+            ],
+            [
+                "f087f9c3c8bed443"
+            ],
+            [
+                "c51f4fd3ee5a5380"
+            ]
+        ]
+    },
+    {
+        "id": "d164cdee2070e440",
+        "type": "switch",
+        "z": "9f89e4188f168b46",
+        "name": "on?",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "eq",
+                "v": "true",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 5,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "0e324e7f0dee05fc"
+            ],
+            [
+                "0e324e7f0dee05fc"
+            ],
+            [
+                "0e324e7f0dee05fc"
+            ],
+            [
+                "0e324e7f0dee05fc"
+            ],
+            [
+                "bcad196bf5cd10e7"
+            ]
+        ]
+    },
+    {
+        "id": "662589f3a62cea24",
+        "type": "switch",
+        "z": "9f89e4188f168b46",
+        "name": "==\"Success.\"",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Success.",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 560,
+        "y": 440,
+        "wires": [
+            [
+                "d82ff06a7eedd8f1"
+            ],
+            [
+                "7d9ecaea711a166c"
+            ]
+        ]
+    },
+    {
+        "id": "d82ff06a7eedd8f1",
+        "type": "change",
+        "z": "9f89e4188f168b46",
+        "name": "success",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"fill\":\"blue\",\"shape\":\"dot\",\"text\":\"success\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 420,
+        "wires": [
+            [
+                "947045134b7f4ac9"
+            ]
+        ]
+    },
+    {
+        "id": "7d9ecaea711a166c",
+        "type": "change",
+        "z": "9f89e4188f168b46",
+        "name": "error",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"fill\":\"red\",\"shape\":\"ring\",\"text\":\"error\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 730,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "947045134b7f4ac9",
+        "type": "delay",
+        "z": "9f89e4188f168b46",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "acc85c6c61482b1f"
+            ]
+        ]
+    },
+    {
+        "id": "acc85c6c61482b1f",
+        "type": "change",
+        "z": "9f89e4188f168b46",
+        "name": "clear",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 810,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4ac51f92cb3bb5d",
+        "type": "subflow:9f89e4188f168b46",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "env": [
+            {
+                "name": "ip_address",
+                "value": "192.168.11.9",
+                "type": "str"
+            },
+            {
+                "name": "target",
+                "value": "yellow",
+                "type": "str"
+            },
+            {
+                "name": "ip",
+                "value": "192.168.11.9",
+                "type": "str"
+            }
+        ],
+        "x": 430,
+        "y": 400,
+        "wires": []
+    }
+]
