@@ -29,7 +29,7 @@ To allow this node to access the HTTP server on your Patlite device, you need to
 
 ### Demonstrations
 - Simple flow demonstration
-  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/demo.png)
+  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/demo.gif)
 
 - Dashboard integration
-  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/dashboard.png)
+  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/dashboard.gif)
