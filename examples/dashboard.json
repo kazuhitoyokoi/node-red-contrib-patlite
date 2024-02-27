@@ -1,0 +1,365 @@
+[
+    {
+        "id": "a6cc10ad1c4e66dd",
+        "type": "ui-led",
+        "z": "050cb43ce7097786",
+        "name": "red",
+        "group": "91841dd0acc931b9",
+        "order": 2,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#808080"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#ff0000"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 290,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1443ef8c9bcf2708",
+        "type": "ui-led",
+        "z": "050cb43ce7097786",
+        "name": "yellow",
+        "group": "91841dd0acc931b9",
+        "order": 4,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#808080"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#ffff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 290,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "88ba210ecfa81bde",
+        "type": "ui-led",
+        "z": "050cb43ce7097786",
+        "name": "green",
+        "group": "91841dd0acc931b9",
+        "order": 6,
+        "width": "1",
+        "height": "1",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#808080"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "square",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 290,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "fb260ade6c335231",
+        "type": "patlite",
+        "z": "050cb43ce7097786",
+        "name": "red",
+        "ip_address": "192.168.11.9",
+        "target": "red",
+        "x": 290,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d9f1a9ec5a845ede",
+        "type": "patlite",
+        "z": "050cb43ce7097786",
+        "name": "yellow",
+        "ip_address": "192.168.11.9",
+        "target": "yellow",
+        "x": 290,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "d921f9aadbd4d9bc",
+        "type": "patlite",
+        "z": "050cb43ce7097786",
+        "name": "green",
+        "ip_address": "192.168.11.9",
+        "target": "green",
+        "x": 290,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "97ddcfcb66b61711",
+        "type": "ui-switch",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "label": "red",
+        "group": "91841dd0acc931b9",
+        "order": 1,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "fb260ade6c335231",
+                "a6cc10ad1c4e66dd"
+            ]
+        ]
+    },
+    {
+        "id": "efaef1cf3ea96e59",
+        "type": "ui-switch",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "label": "yellow",
+        "group": "91841dd0acc931b9",
+        "order": 3,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "d9f1a9ec5a845ede",
+                "1443ef8c9bcf2708"
+            ]
+        ]
+    },
+    {
+        "id": "ab13a2536d100c77",
+        "type": "ui-switch",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "label": "green",
+        "group": "91841dd0acc931b9",
+        "order": 5,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "d921f9aadbd4d9bc",
+                "88ba210ecfa81bde"
+            ]
+        ]
+    },
+    {
+        "id": "61cd8ceb46cf6e42",
+        "type": "patlite",
+        "z": "050cb43ce7097786",
+        "name": "buzzer",
+        "ip_address": "192.168.11.9",
+        "target": "buzzer",
+        "x": 290,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b59b30f3bfeba835",
+        "type": "ui-switch",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "label": "buzzer",
+        "group": "91841dd0acc931b9",
+        "order": 7,
+        "width": "1",
+        "height": "1",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "61cd8ceb46cf6e42"
+            ]
+        ]
+    },
+    {
+        "id": "07e7f446649cc093",
+        "type": "ui-webcam",
+        "z": "050cb43ce7097786",
+        "name": "",
+        "group": "29b1aa8896f0c725",
+        "width": "4",
+        "height": "4",
+        "passthru": false,
+        "x": 130,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d7ba7f406e93ae0",
+        "type": "comment",
+        "z": "050cb43ce7097786",
+        "name": "- change IP address in patlite node.\\n - install following nodes\\n @flowfuse/node-red-dashboard\\n @flowfuse/node-red-dashboard-2-ui-led\\n @sumit_shinde_84/node-red-dashboard-2-ui-webcam",
+        "info": "",
+        "x": 260,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "91841dd0acc931b9",
+        "type": "ui-group",
+        "name": "Controller",
+        "page": "c55ae4869f193949",
+        "width": "2",
+        "height": "4",
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "29b1aa8896f0c725",
+        "type": "ui-group",
+        "name": "Web camera",
+        "page": "c55ae4869f193949",
+        "width": "4",
+        "height": "4",
+        "order": -1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "c55ae4869f193949",
+        "type": "ui-page",
+        "name": "Patlite dashboard",
+        "ui": "a075479056f1141a",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "e46167f32821e8ae",
+        "order": -1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "a075479056f1141a",
+        "type": "ui-base",
+        "name": "画面名",
+        "path": "/dashboard",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "navigationStyle": "default"
+    },
+    {
+        "id": "e46167f32821e8ae",
+        "type": "ui-theme",
+        "name": "テーマ名",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094ce",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    }
+]
