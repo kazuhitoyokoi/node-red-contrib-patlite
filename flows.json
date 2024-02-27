@@ -3,12 +3,12 @@
         "id": "9f89e4188f168b46",
         "type": "subflow",
         "name": "patlite",
-        "info": "",
+        "info": "A node to control the Patlite NHV series\n\nAfter setting the IP address and target (light color or buzzer) in the node property, you can control this node with the `msg.payload` value.\n\n### Input\n- `msg.payload` _boolean_\n\n  If the received `msg.payload` is `true`, the target light will be on.\n  When `msg.payload` has `false` value, the target light is turned off.\n\n- `msg.topic` _number_\n\n  You can set the light or buzzer mode in the `msg.topic`.\n  The range of the value is between `1` and `5`.",
         "category": "network",
         "in": [
             {
-                "x": 40,
-                "y": 60,
+                "x": 60,
+                "y": 200,
                 "wires": [
                     {
                         "id": "d164cdee2070e440"
@@ -80,17 +80,17 @@
         "meta": {
             "module": "@kazuhitoyokoi/node-red-contrib-patlite",
             "type": "patlite",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "author": "Kazuhito Yokoi <kazuhitoyokoi@nodered.jp>",
-            "desc": "A node to control Patlite NHV series",
+            "desc": "A node to control the Patlite NHV series",
             "keywords": "node-red, patlite",
             "license": "Apache-2.0"
         },
         "color": "#E9967A",
         "icon": "node-red/bridge-dash.svg",
         "status": {
-            "x": 880,
-            "y": 440,
+            "x": 680,
+            "y": 460,
             "wires": [
                 {
                     "id": "d82ff06a7eedd8f1",
@@ -118,7 +118,7 @@
         "syntax": "mustache",
         "template": "http://{{env.ip_address}}/api/control?alert=099999",
         "output": "str",
-        "x": 450,
+        "x": 490,
         "y": 220,
         "wires": [
             [
@@ -140,30 +140,11 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 650,
+        "x": 690,
         "y": 200,
         "wires": [
             [
-                "662589f3a62cea24"
-            ]
-        ]
-    },
-    {
-        "id": "4454cd68c873ec22",
-        "type": "template",
-        "z": "9f89e4188f168b46",
-        "name": "red on",
-        "field": "url",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "http://{{env.ip_address}}/api/control?alert=199999",
-        "output": "str",
-        "x": 450,
-        "y": 60,
-        "wires": [
-            [
-                "a680e78eb9b38fa0"
+                "3813db38f5723651"
             ]
         ]
     },
@@ -178,27 +159,8 @@
         "syntax": "mustache",
         "template": "http://{{env.ip_address}}/api/control?alert=909999",
         "output": "str",
-        "x": 460,
+        "x": 500,
         "y": 260,
-        "wires": [
-            [
-                "a680e78eb9b38fa0"
-            ]
-        ]
-    },
-    {
-        "id": "1aaa29f257328b61",
-        "type": "template",
-        "z": "9f89e4188f168b46",
-        "name": "yellow on",
-        "field": "url",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "http://{{env.ip_address}}/api/control?alert=919999",
-        "output": "str",
-        "x": 460,
-        "y": 100,
         "wires": [
             [
                 "a680e78eb9b38fa0"
@@ -216,27 +178,8 @@
         "syntax": "mustache",
         "template": "http://{{env.ip_address}}/api/control?alert=990999",
         "output": "str",
-        "x": 460,
+        "x": 500,
         "y": 300,
-        "wires": [
-            [
-                "a680e78eb9b38fa0"
-            ]
-        ]
-    },
-    {
-        "id": "2f6a1dc63c41b15f",
-        "type": "template",
-        "z": "9f89e4188f168b46",
-        "name": "green on",
-        "field": "url",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "http://{{env.ip_address}}/api/control?alert=991999",
-        "output": "str",
-        "x": 460,
-        "y": 140,
         "wires": [
             [
                 "a680e78eb9b38fa0"
@@ -254,27 +197,8 @@
         "syntax": "mustache",
         "template": "http://{{env.ip_address}}/api/control?alert=999990",
         "output": "str",
-        "x": 460,
+        "x": 500,
         "y": 340,
-        "wires": [
-            [
-                "a680e78eb9b38fa0"
-            ]
-        ]
-    },
-    {
-        "id": "0b7139aedcad1ed0",
-        "type": "template",
-        "z": "9f89e4188f168b46",
-        "name": "buzzer on",
-        "field": "url",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "http://{{env.ip_address}}/api/control?alert=999994",
-        "output": "str",
-        "x": 460,
-        "y": 180,
         "wires": [
             [
                 "a680e78eb9b38fa0"
@@ -313,20 +237,20 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 290,
+        "x": 330,
         "y": 120,
         "wires": [
             [
-                "4454cd68c873ec22"
+                "c49ce7d19c65e276"
             ],
             [
-                "1aaa29f257328b61"
+                "1a0860403d878208"
             ],
             [
-                "2f6a1dc63c41b15f"
+                "98926c537d721063"
             ],
             [
-                "0b7139aedcad1ed0"
+                "925fcce4377303f0"
             ]
         ]
     },
@@ -362,7 +286,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 4,
-        "x": 290,
+        "x": 330,
         "y": 280,
         "wires": [
             [
@@ -396,14 +320,20 @@
                 "vt": "str"
             },
             {
-                "t": "eq",
-                "v": "1",
+                "t": "gt",
+                "v": "0",
                 "vt": "num"
             },
             {
                 "t": "eq",
-                "v": "1",
+                "v": "0",
                 "vt": "str"
+            },
+            {
+                "t": "regex",
+                "v": "^[0-9]+$",
+                "vt": "str",
+                "case": false
             },
             {
                 "t": "else"
@@ -411,9 +341,9 @@
         ],
         "checkall": "false",
         "repair": false,
-        "outputs": 5,
-        "x": 130,
-        "y": 120,
+        "outputs": 6,
+        "x": 170,
+        "y": 200,
         "wires": [
             [
                 "0e324e7f0dee05fc"
@@ -423,6 +353,9 @@
             ],
             [
                 "0e324e7f0dee05fc"
+            ],
+            [
+                "bcad196bf5cd10e7"
             ],
             [
                 "0e324e7f0dee05fc"
@@ -452,8 +385,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 560,
-        "y": 440,
+        "x": 280,
+        "y": 460,
         "wires": [
             [
                 "d82ff06a7eedd8f1"
@@ -482,8 +415,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 740,
-        "y": 420,
+        "x": 500,
+        "y": 400,
         "wires": [
             [
                 "947045134b7f4ac9"
@@ -509,8 +442,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 730,
-        "y": 460,
+        "x": 490,
+        "y": 580,
         "wires": [
             []
         ]
@@ -532,8 +465,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 680,
-        "y": 360,
+        "x": 500,
+        "y": 460,
         "wires": [
             [
                 "acc85c6c61482b1f"
@@ -559,14 +492,123 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 810,
-        "y": 360,
+        "x": 490,
+        "y": 520,
         "wires": [
             []
         ]
     },
     {
-        "id": "f4ac51f92cb3bb5d",
+        "id": "89f44a2dd6300242",
+        "type": "link in",
+        "z": "9f89e4188f168b46",
+        "name": "link in 1",
+        "links": [
+            "3813db38f5723651"
+        ],
+        "x": 145,
+        "y": 460,
+        "wires": [
+            [
+                "662589f3a62cea24"
+            ]
+        ]
+    },
+    {
+        "id": "3813db38f5723651",
+        "type": "link out",
+        "z": "9f89e4188f168b46",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "89f44a2dd6300242"
+        ],
+        "x": 815,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "925fcce4377303f0",
+        "type": "function",
+        "z": "9f89e4188f168b46",
+        "name": "buzzer on",
+        "func": "if (1 <= Number(msg.topic) && Number(msg.topic) <= 5) {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=99999' + msg.topic;\n} else {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=999994';\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 180,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "c49ce7d19c65e276",
+        "type": "function",
+        "z": "9f89e4188f168b46",
+        "name": "red on",
+        "func": "if (1 <= Number(msg.topic) && Number(msg.topic) <= 5) {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=' + msg.topic + '99999';\n} else {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=199999';\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 60,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "1a0860403d878208",
+        "type": "function",
+        "z": "9f89e4188f168b46",
+        "name": "yellow on",
+        "func": "if (1 <= Number(msg.topic) && Number(msg.topic) <= 5) {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=9' + msg.topic + '9999';\n} else {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=919999';\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 100,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "98926c537d721063",
+        "type": "function",
+        "z": "9f89e4188f168b46",
+        "name": "green on",
+        "func": "if (1 <= Number(msg.topic) && Number(msg.topic) <= 5) {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=99' + msg.topic + '999';\n} else {\n    msg.url = 'http://' + env.get('ip_address')\n            + '/api/control?alert=991999';\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 140,
+        "wires": [
+            [
+                "a680e78eb9b38fa0"
+            ]
+        ]
+    },
+    {
+        "id": "336c561d7875d5d5",
         "type": "subflow:9f89e4188f168b46",
         "z": "050cb43ce7097786",
         "name": "",
@@ -575,20 +617,10 @@
                 "name": "ip_address",
                 "value": "192.168.11.9",
                 "type": "str"
-            },
-            {
-                "name": "target",
-                "value": "yellow",
-                "type": "str"
-            },
-            {
-                "name": "ip",
-                "value": "192.168.11.9",
-                "type": "str"
             }
         ],
-        "x": 430,
-        "y": 400,
+        "x": 770,
+        "y": 340,
         "wires": []
     }
 ]
