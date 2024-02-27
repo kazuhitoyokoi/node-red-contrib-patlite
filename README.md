@@ -25,11 +25,11 @@ After setting the IP address and target (light color or buzzer) in the node prop
 ### Demonstrations
 - Simple flow demonstration
 
-  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/demo.gif)
+  ![](demo.gif)
 
 - Dashboard integration
 
-  ![](https://github.com/kazuhitoyokoi/node-red-contrib-patlite/blob/main/dashboard.gif)
+  ![](dashboard.gif)
 
 ### Settings
 To allow this node to access the HTTP server on your Patlite device, you need to enable the HTTP Command Control in advance.
